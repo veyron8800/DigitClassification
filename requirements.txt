@@ -9,7 +9,6 @@ google-auth-oauthlib==0.4.1
 google-pasta==0.2.0
 grpcio==1.30.0
 h5py==2.10.0
-hls4ml @ file:///home/areis/Desktop/DigitClassification/hls4ml
 idna==2.9
 Keras-Preprocessing==1.1.2
 Markdown==3.2.2

@@ -26,18 +26,15 @@ test_labels = np.array(test_labels)
 model = keras.models.load_model('DCTF.h5')
 predictions = model.predict(test_images)
 
-fout_images_flat_c = open('SimData/input_c.dat', 'w')
-fout_images_flat_f = open('SimData/input_f.dat', 'w')
+fout_images_flat = open('SimData/input.dat', 'w')
 fout_labels = open('SimData/labels.dat', 'w')
 fout_model_prediction = open('SimData/ModelPredictions.dat', 'w')
 
 for i in range(100):
     fout_labels.write(' '.join(test_labels[i].astype(str)) + '\n')
-    fout_images_flat_c.write(' '.join(test_images[i].flatten('C').astype(str)) + '\n')
-    fout_images_flat_f.write(' '.join(test_images[i].flatten('F').astype(str)) + '\n')
+    fout_images_flat.write(' '.join(test_images[i].flatten('C').astype(str)) + '\n')
     fout_model_prediction.write(' '.join(predictions[i].astype(str)) + '\n')
 
-fout_images_flat_c.close()
-fout_images_flat_f.close()
+fout_images_flat.close()
 fout_labels.close()
 fout_model_prediction.close()

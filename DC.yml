@@ -1,6 +1,6 @@
 KerasJson: DC.json
 KerasH5: DC.h5
-InputData: SimData/input_c.dat
+InputData: SimData/input.dat
 OutputPredictions: SimData/labels.dat
 OutputDir: DC
 ProjectName: DC
@@ -9,7 +9,11 @@ ClockPeriod: 5
 
 IOType: io_parallel
 HLSConfig:
-  Model:
-    Precision: ap_fixed<16,6>
-    ReuseFactor: 60000
-    Strategy: Resource
+ Model:
+   Precision: ap_fixed<16,6>
+   ReuseFactor: 60000
+   Strategy: Resource
+ LayerName:
+   dense_1_softmax:
+     exp_table_t: ap_fixed<18,8,AP_RND,AP_SAT>
+     inv_table_t: ap_fixed<18,8,AP_RND,AP_SAT>

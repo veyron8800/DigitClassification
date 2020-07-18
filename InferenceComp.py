@@ -36,11 +36,14 @@ hls_model.compile()
 hls_predictions = hls_model.predict(test_images)
 
 tf_out = open('InferenceComp/TF_OUT.dat', 'w')
-hls_out = open('InferenceComp/HLS4ML_Out.dat', 'w')
+hls_out = open('InferenceComp/HLS4ML_Out_Master_Adj_Type.dat', 'w')
+labels_out = open('InferenceComp/Labels_Out.dat', 'w')
 
-for tf_pred, hls_pred in zip(tf_predictions, hls_predictions):
+for tf_pred, hls_pred, labels in zip(tf_predictions, hls_predictions, test_labels):
     tf_out.write(' '.join(tf_pred.astype(str)) + '\n')
     hls_out.write(' '.join(hls_pred.astype(str)) + '\n')
+    labels_out.write(' '.join(labels.astype(str)) + '\n')
 
 tf_out.close()
 hls_out.close()
+labels_out.close()
